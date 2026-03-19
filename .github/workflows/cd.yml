@@ -1,23 +1,28 @@
-name: Deploy HTML a Pages
+name: Deploy a AWS S3
 
 on:
   push:
     branches:
       - main
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar credenciales de AWS
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          path: .
-      - uses: actions/deploy-pages@v4
+          # Estos secretos los debes crear en GitHub -> Settings -> Secrets
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2 # Cambia esto por la región de tu bucket
+
+      - name: Sincronizar archivos al Bucket
+        run: |
+          # Sincroniza el contenido de la raíz al bucket
+          # Usamos --exclude ".git*" para no subir archivos internos de Git
+          aws s3 sync . s3://demo-ci-cd-aws-josue --delete --exclude ".git*"
