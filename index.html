@@ -1,16 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CI/CD AWS Demo</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #cbd5f5;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            background: #16a34a;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        img {
+            margin-top: 20px;
+            max-width: 200px;
+            border-radius: 10px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hola mundo</h1>
-    <p>Este es mi cambio</p>
-    <p>Nuevo cambio desde mi rama Desarrollo-cambio</p>
+    <div class="container">
+        <h1>🚀 CI/CD Funcionando</h1>
+        <p>Despliegue automático con GitHub Actions</p>
+        <p>Hosting en AWS S3</p>
 
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQSkw2nEjil00Y_Vuw3j9JiDtAcjzol3Mfkw&s" alt="Imagen de ejemplo">
+        <div class="status">
+            ✅ Deploy exitoso
+        </div>
 
+        <p>Último cambio desde rama <strong>Desarrollo-cambio</strong></p>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQSkw2nEjil00Y_Vuw3j9JiDtAcjzol3Mfkw&s" alt="Imagen de ejemplo">
+
+        <div class="footer">
+            Proyecto de prueba DevOps | CI/CD + AWS
+        </div>
+    </div>
 </body>
 </html>
